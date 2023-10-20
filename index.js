@@ -14,14 +14,15 @@ const client = new pg.Client({
   password: '2kePjBU4mJCgbFemSTkY2Str74AfOqEo',
   port: 5432,
 })
-await client.connect()
  
 
 const port = 3000
 
 app.get('/', async (req, res) =>  {
+  await client.connect()
   const data = await client.query('SELECT * from person')
   res.send(data)
+  await client.disconnect()
 })
 
 app.listen(port, () => {
