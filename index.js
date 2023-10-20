@@ -1,7 +1,7 @@
 const express = require('express')
 
 const pgp = require('pg-promise')()
-const db = pgp( 'postgres://web_radionica_db_user:2kePjBU4mJCgbFemSTkY2Str74AfOqEo@dpg-ckp018oujous73c3qbg0-a/web_radionica_dbg')
+const db = pgp('postgres://web_radionica_db_user:2kePjBU4mJCgbFemSTkY2Str74AfOqEo@dpg-ckp018oujous73c3qbg0-a/web_radionica_db')
 var cors = require('cors')
 var app = express()
  
