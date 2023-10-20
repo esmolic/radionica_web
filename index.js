@@ -1,12 +1,13 @@
 const express = require('express')
+const express = require('pg')
+
 var cors = require('cors')
 var app = express()
  
 app.use(cors())
 
-import { Client } from 'pg'
 
-const client = new Client({
+const client = new pg.Client({
   user: 'web_radionica_db_user',
   host: 'dpg-ckp018oujous73c3qbg0-a',
   database: 'web_radionica_db',
