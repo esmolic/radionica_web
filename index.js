@@ -5,7 +5,14 @@ var app = express()
 app.use(cors())
 
 import { Client } from 'pg'
-const client = new Client('postgres://web_radionica_db_user:2kePjBU4mJCgbFemSTkY2Str74AfOqEo@dpg-ckp018oujous73c3qbg0-a/web_radionica_db')
+
+const client = new Client({
+  user: 'web_radionica_db_user',
+  host: 'dpg-ckp018oujous73c3qbg0-a',
+  database: 'web_radionica_db',
+  password: '2kePjBU4mJCgbFemSTkY2Str74AfOqEo',
+  port: 5432,
+})
 await client.connect()
  
 
