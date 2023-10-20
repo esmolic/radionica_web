@@ -11,7 +11,7 @@ app.use(cors())
 const port = 3000
 
 app.get('/', async (req, res) =>  {
-  await db.any('SELECT * from public.person').then(data => res.send(data)).catch(err => res.send(err))
+  db.any('SELECT * from public.person').then(data => res.send(data)).catch(err => res.send(err))
 })
 
 app.listen(port, () => {
