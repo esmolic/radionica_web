@@ -1,28 +1,18 @@
 const express = require('express')
-const pg = require('pg')
 
+const pgp = require('pg-promise')()
+const db = pgp( 'postgres://web_radionica_db_user:2kePjBU4mJCgbFemSTkY2Str74AfOqEo@dpg-ckp018oujous73c3qbg0-a/web_radionica_dbg')
 var cors = require('cors')
 var app = express()
  
 app.use(cors())
 
 
-const client = new pg.Client({
-  user: 'web_radionica_db_user',
-  host: 'dpg-ckp018oujous73c3qbg0-a',
-  database: 'web_radionica_db',
-  password: '2kePjBU4mJCgbFemSTkY2Str74AfOqEo',
-  port: 5432,
-})
- 
-
 const port = 3000
 
 app.get('/', async (req, res) =>  {
-  await client.connect()
-  const data = await client.query('SELECT * from person')
+  const data = await db.query('SELECT * from person')
   res.send(data)
-  await client.disconnect()
 })
 
 app.listen(port, () => {
