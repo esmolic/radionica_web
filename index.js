@@ -1,5 +1,5 @@
 const express = require('express')
-const express = require('pg')
+const pg = require('pg')
 
 var cors = require('cors')
 var app = express()
